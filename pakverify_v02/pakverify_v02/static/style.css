@@ -1,0 +1,151 @@
+:root {
+    --bg-primary: #0f172a;
+    --bg-surface: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --brand-success: #10b981;
+    --brand-error: #ef4444;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 640px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.app-header h1 {
+    margin: 0 0 4px 0;
+    font-size: 2rem;
+    letter-spacing: -0.05em;
+}
+
+#step-indicator {
+    color: var(--text-muted);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.view-panel {
+    background-color: var(--bg-surface);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+    overflow: hidden;
+    position: relative;
+    min-height: 400px;
+}
+
+.screen-card {
+    display: none;
+    padding: 32px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.screen-card.active {
+    display: flex;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    line-height: 0;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    transform: scaleX(-1); /* Mirror view for natural interaction */
+}
+
+.overlay-guide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px dashed rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.overlay-guide.card-guide {
+    width: 80%;
+    height: 50%;
+    border-radius: 12px;
+}
+
+.overlay-guide.face-guide {
+    width: 55%;
+    height: 65%;
+    border-radius: 50%;
+}
+
+.control-bar {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary { background: #3b82f6; color: white; }
+.btn-success { background: var(--brand-success); color: white; }
+.btn-secondary { background: #475569; color: white; }
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid rgba(255,255,255,0.1);
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+    margin-bottom: 20px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.dashboard-grid {
+    text-align: left;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.status-banner {
+    padding: 16px;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.status-banner.success { background-color: rgba(16, 185, 129, 0.2); color: var(--brand-success); }
+.status-banner.fail { background-color: rgba(239, 68, 68, 0.2); color: var(--brand-error); }

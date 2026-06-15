@@ -1,0 +1,12 @@
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+python-dotenv==1.0.1
+google-genai>=0.8.0
+Pillow>=11.0.0
+httpx>=0.27.0
+
+# Biometric Verification (DeepFace & Dependencies)
+deepface>=0.0.90
+tf-keras>=2.16.0
+opencv-python-headless>=4.9.0

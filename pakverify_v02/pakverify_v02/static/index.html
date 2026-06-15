@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PakVerify - Enterprise Identity Verification</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>PakVerify</h1>
+            <p id="step-indicator">Step 1: Initialize Verification Session</p>
+        </header>
+
+        <main class="view-panel">
+            <div id="init-screen" class="screen-card active">
+                <h3>Welcome to Secure KYC</h3>
+                <p>Please have your Pakistani CNIC ready. We will verify your front ID, back ID, and take a quick selfie to confirm your identity.</p>
+                <button id="start-session-btn" class="btn btn-primary">Start Verification</button>
+            </div>
+
+            <div id="camera-screen" class="screen-card">
+                <div class="video-wrapper">
+                    <video id="webcam" autoplay playsinline anticipated-width="1920" anticipated-height="1080"></video>
+                    <div id="camera-overlay" class="overlay-guide card-guide"></div>
+                </div>
+                <div class="control-bar">
+                    <button id="capture-btn" class="btn btn-success">Capture Photo</button>
+                </div>
+            </div>
+
+            <div id="processing-screen" class="screen-card">
+                <div class="spinner"></div>
+                <h3>Running Security Checks</h3>
+                <p>Our biometric engine is analyzing your credentials and matching your facial signature. Please wait...</p>
+                <div class="polling-status" id="polling-text">Submitting biometric data...</div>
+            </div>
+
+            <div id="results-screen" class="screen-card">
+                <div id="result-status-banner"></div>
+                
+                <div class="dashboard-grid">
+                    <div class="data-section">
+                        <h4>Extracted Identity Data</h4>
+                        <ul id="extracted-data-list"></ul>
+                    </div>
+                    <div class="biometric-section">
+                        <h4>Biometric Audit</h4>
+                        <p id="biometric-match-text"></p>
+                    </div>
+                </div>
+                <button id="restart-btn" class="btn btn-secondary">Verify Another Identity</button>
+            </div>
+        </main>
+
+        <canvas id="compression-canvas" style="display: none;"></canvas>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

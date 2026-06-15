@@ -1,0 +1,5 @@
+.env
+__pycache__/
+audit_ledger.csv
+*.pyc
+app/storage/sessions/
